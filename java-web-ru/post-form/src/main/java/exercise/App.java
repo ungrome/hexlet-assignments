@@ -33,9 +33,9 @@ public final class App {
 
         // BEGIN
         app.post("/users", ctx -> {
-            var firstName = Objects.requireNonNull(ctx.formParam("firstName")).trim().toUpperCase();
-            var lastName = Objects.requireNonNull(ctx.formParam("lastName")).trim().toUpperCase();
-            var email = Objects.requireNonNull(ctx.formParam("email")).trim().toLowerCase();
+            var firstName = StringUtils.capitalize(ctx.formParam("firstName").trim());
+            var lastName = StringUtils.capitalize(ctx.formParam("lastName").trim());
+            var email = ctx.formParam("email").trim().toLowerCase();
             var password = Security.encrypt(Objects.requireNonNull(ctx.formParam("password")));
             var user = new User(firstName, lastName, email, password);
             UserRepository.save(user);
