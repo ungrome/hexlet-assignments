@@ -23,15 +23,40 @@
             </table>
     </div>
     <div>
-
-       @if (page.getPageNumber() > 1)
-           <a href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() - 1}"
-              class="btn btn-primary">Предыдущая</a>
-       @else
-           <span>Предыдущая</span>
-       @endif
-        <a href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() + 1}" class="btn btn-primary">Следующая</a>
-
+        <nav aria-label="...">
+            <ul class="pagination">
+                @if (page.getPageNumber() > 1)
+                    <li class="page-item">
+                        <a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() - 1}"
+                           tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() - 1}"
+                        >${page.getPageNumber() - 1}</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber()}"
+                        >${page.getPageNumber()} <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() + 1}"
+                        >${page.getPageNumber() + 1}</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() + 1}">Next</a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber()}"
+                        >${page.getPageNumber()} <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() + 1}"
+                        >${page.getPageNumber() + 1}</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPageNumber() + 1}">Next</a>
+                    </li>
+                @endif
+            </ul>
+        </nav>
     </div>
     `
 )
