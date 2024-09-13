@@ -92,7 +92,7 @@ public class PostsController {
             var errors = e.getErrors();
             var post = new Post(id, name, body);
             var page = new EditPostPage(post, errors);
-            ctx.render("posts/edit.jte", model("page", page));
+            ctx.render("posts/edit.jte", model("page", page)).status(422);
         }
     }
     // END
