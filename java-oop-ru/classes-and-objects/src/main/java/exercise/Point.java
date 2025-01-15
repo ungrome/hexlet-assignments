@@ -11,11 +11,11 @@ public class Point {
     }
 
     public Integer getX() {
-        return x;
+        return this.x;
     }
 
     public Integer getY() {
-        return y;
+        return this.y;
     }
 }
 // END

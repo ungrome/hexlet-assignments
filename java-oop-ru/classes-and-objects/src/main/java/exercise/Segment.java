@@ -12,11 +12,11 @@ public class Segment {
     }
 
     public Point getBeginPoint() {
-        return beginPoint;
+        return this.beginPoint;
     }
 
     public Point getEndPoint() {
-        return endPoint;
+        return this.endPoint;
     }
 
     public Point getMidPoint() {
