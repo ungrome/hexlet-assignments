@@ -24,7 +24,9 @@ public class ContactsController {
         contact.setFirstName(data.getFirstName());
         contact.setLastName(data.getLastName());
         contact.setPhone(data.getPhone());
+
         contactRepository.save(contact);
+
         var contactDTO = toDTO(contact);
         return contactDTO;
 
@@ -32,6 +34,7 @@ public class ContactsController {
 
     public ContactDTO toDTO(Contact contact) {
         var dto = new ContactDTO();
+        dto.setId(contact.getId());
         dto.setFirstName(contact.getFirstName());
         dto.setLastName(contact.getLastName());
         dto.setPhone(contact.getPhone());
