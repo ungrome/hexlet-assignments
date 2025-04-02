@@ -47,8 +47,8 @@ public class BookService {
     }
 
     public BookDTO update(BookUpdateDTO bookUpdateDTO, Long id) {
-        Author author = authorRepository.findById(bookUpdateDTO.getAuthorId().get())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Author not found"));
+//        Author author = authorRepository.findById(bookUpdateDTO.getAuthorId().get())
+//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Author not found"));
         var book = bookRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Book with id " + id + " not found"));
         bookMapper.update(bookUpdateDTO, book);
